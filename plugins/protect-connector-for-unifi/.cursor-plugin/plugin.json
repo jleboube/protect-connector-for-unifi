@@ -1,0 +1,48 @@
+{
+  "name": "protect-connector-for-unifi",
+  "displayName": "Protect Connector for UniFi (community)",
+  "version": "0.1.0",
+  "description": "Read-only access to your UniFi Protect cameras: list cameras and their status, grab live snapshots, check sensors, floodlights, chimes and viewers. Community project, not affiliated with Ubiquiti.",
+  "author": {
+    "name": "jleboube"
+  },
+  "homepage": "https://github.com/jleboube/protect-connector-for-unifi",
+  "repository": "https://github.com/jleboube/protect-connector-for-unifi",
+  "license": "MIT",
+  "logo": "assets/logo.svg",
+  "keywords": [
+    "unifi protect",
+    "protect connector for unifi",
+    "unifi cameras",
+    "camera snapshot",
+    "mcp"
+  ],
+  "category": "integrations",
+  "tags": [
+    "cameras",
+    "security",
+    "home",
+    "mcp"
+  ],
+  "mcpServers": "./mcp.json",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "UNIFI_API_KEY": {
+        "type": "string",
+        "title": "UniFi Site Manager API key",
+        "description": "Create at unifi.ui.com \u2192 Settings \u2192 API Keys. Sent only in the request header to the connector, which passes it to api.ui.com and never stores or logs it. Remote Access must be on for your console.",
+        "minLength": 10
+      },
+      "UNIFI_CONSOLE_ID": {
+        "type": "string",
+        "title": "Console ID or name (optional)",
+        "description": "Only needed if your key can see more than one online console running Protect. Use the console ID or its name (e.g. Dream Machine Pro); ask the assistant to run unifi_list_consoles to see them.",
+        "default": ""
+      }
+    },
+    "required": [
+      "UNIFI_API_KEY"
+    ]
+  }
+}

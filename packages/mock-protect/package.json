@@ -1,0 +1,16 @@
+{
+  "name": "@unifi-mcp/mock-protect",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Mock UniFi Protect Integration API + Site Manager /v1/hosts for tests and local development. Shapes follow Protect API 7.2.105.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "bin": { "mock-protect": "dist/cli.js" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}

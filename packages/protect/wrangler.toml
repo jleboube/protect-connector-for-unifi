@@ -1,0 +1,28 @@
+# Remote MCP endpoint for "Protect Connector for UniFi (community)".
+# Stateless and key-less: users' API keys arrive per request and are never stored or logged.
+name = "unifi-protect-mcp"
+main = "src/worker.ts"
+compatibility_date = "2026-09-01"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+# Set CLOUDFLARE_ACCOUNT_ID in the environment, or uncomment and fill in:
+# account_id = "<your-cloudflare-account-id>"
+
+# Optional custom domain on a zone you own (a Worker custom domain creates its own DNS record):
+# routes = [{ pattern = "mcp.example.com", custom_domain = true }]
+
+# No request logging or tracing (headers carry users' API keys).
+[observability]
+enabled = false
+
+# Abuse protection (Workers Rate Limiting bindings).
+[[ratelimits]]
+name = "IP_LIMITER"
+namespace_id = "41001"
+simple = { limit = 120, period = 60 }
+
+[[ratelimits]]
+name = "KEY_LIMITER"
+namespace_id = "41002"
+simple = { limit = 100, period = 60 }
+

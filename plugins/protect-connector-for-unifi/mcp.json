@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "protect-connector-for-unifi": {
+      "type": "http",
+      "url": "https://unifi-mcp.ai-sherpa.rocks/mcp",
+      "headers": {
+        "X-UniFi-API-Key": "${UNIFI_API_KEY}",
+        "X-UniFi-Console-Id": "${UNIFI_CONSOLE_ID}"
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@unifi-mcp/protect",
+  "version": "0.1.0",
+  "description": "Protect Connector for UniFi (community): a read-only MCP server for UniFi Protect. Not affiliated with Ubiquiti.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": { "protect-connector-for-unifi": "dist/stdio.js" },
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./worker": { "import": "./dist/worker.js" }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/stdio.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev:worker": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "@unifi-mcp/core": "workspace:*",
+    "undici": "^7.10.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@cfworker/json-schema": "^4.1.1",
+    "@cloudflare/workers-types": "^4.20251001.0",
+    "@unifi-mcp/mock-protect": "workspace:*"
+  }
+}

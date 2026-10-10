@@ -1,0 +1,17 @@
+{
+  "name": "protect-connector-for-unifi",
+  "owner": {
+    "name": "jleboube"
+  },
+  "metadata": {
+    "description": "Community MCP connectors for UniFi. Not affiliated with Ubiquiti.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "protect-connector-for-unifi",
+      "source": "plugins/protect-connector-for-unifi",
+      "description": "Read-only UniFi Protect cameras, snapshots and sensors. Community project, not affiliated with Ubiquiti."
+    }
+  ]
+}
